@@ -18,12 +18,12 @@
 
 body {
     background-color: var(--dark-bg);
-    color: var(--text-light);
+    color: var(--primary-color);
     line-height: 1.6;
     overflow-x: hidden;
 }
 
-/* Navigation */
+/* --- NAVIGATION --- */
 nav {
     position: fixed;
     top: 0;
@@ -31,17 +31,17 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 10%; /* Changed from 20px to 10px to make it shorter */
-    background: rgba(30, 41, 59, 0.9);
+    padding: 10px 10%;
+    background: rgba(13, 17, 23, 0.9);
     backdrop-filter: blur(10px);
     z-index: 1000;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid #30363d;
 }
 
 .logo {
     font-size: 1.8rem;
     font-weight: 700;
-    color: var(--primary-color);
+    color: var(--secondary-color);
     cursor: pointer;
 }
 
@@ -53,7 +53,7 @@ nav {
 
 .nav-links li a {
     text-decoration: none;
-    color: var(--text-light);
+    color: var(--primary-color);
     font-weight: 500;
     transition: 0.3s;
 }
@@ -66,9 +66,10 @@ nav {
     display: none;
     font-size: 1.5rem;
     cursor: pointer;
+    color: var(--primary-color);
 }
 
-/* Hero Section */
+/* --- HERO SECTION --- */
 .hero {
     height: 100vh;
     display: flex;
@@ -76,21 +77,16 @@ nav {
     justify-content: center;
     gap: 50px;
     padding: 0 10%;
-    background: linear-gradient(135deg, var(--dark-bg) 0%, var(--dark-bg-2) 100%);
-}
-
-.hero-text {
-    flex: 1;
+    background: var(--dark-bg);
 }
 
 .hero-text h1 {
     font-size: 3.5rem;
     margin-bottom: 10px;
-    color: var(--text-light);
-    line-height: 1.1;      /* Tightens the space between "Hi, I'm" and your name */
-    white-space: nowrap;   /* Forces your name to stay on one single line */
+    color: #ffffff;
+    line-height: 1.1;
+    white-space: nowrap;
 }
-
 
 .hero-text h1 span {
     color: var(--secondary-color);
@@ -100,16 +96,17 @@ nav {
     font-size: 1.5rem;
     font-weight: 400;
     margin-bottom: 20px;
-    color: var(--primary-color);
+    color: var(--accent-blue);
 }
 
 .hero-text p {
     font-size: 1.1rem;
     margin-bottom: 30px;
     max-width: 500px;
-    opacity: 0.8;
+    color: var(--primary-color);
 }
 
+/* --- BUTTONS --- */
 .btn {
     display: inline-block;
     padding: 12px 30px;
@@ -121,11 +118,13 @@ nav {
     transition: 0.3s;
     border: none;
     cursor: pointer;
+    box-shadow: 0 4px 15px rgba(88, 166, 255, 0.2);
 }
 
 .btn:hover {
-    background-color: #e67e22;
+    background-color: #1f6feb;
     transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(88, 166, 255, 0.4);
 }
 
 .hero-image {
@@ -139,11 +138,11 @@ nav {
     height: 350px;
     border-radius: 50%;
     object-fit: cover;
-    border: 8px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 30px rgba(74, 144, 226, 0.3);
+    border: 8px solid #30363d;
+    box-shadow: 0 0 30px rgba(88, 166, 255, 0.2);
 }
 
-/* Sections */
+/* --- SECTIONS --- */
 section {
     padding: 100px 10%;
 }
@@ -152,7 +151,7 @@ section {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 50px;
-    color: var(--text-light);
+    color: #ffffff;
     position: relative;
 }
 
@@ -168,13 +167,33 @@ section {
     border-radius: 2px;
 }
 
-/* About Text Alignment */
+/* --- ABOUT SECTION --- */
+#about {
+    background-color: var(--dark-bg-2);
+    border-top: 1px solid #30363d;
+    border-bottom: 1px solid #30363d;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
 .about-text {
-    text-align: justify; /* This makes the right edge of the text straight */
+    text-align: justify;
+    width: 100%;
+}
+
+.about-text h3 {
+    color: var(--secondary-color) !important;
 }
 
 .about-text p {
-    margin-bottom: 15px; /* Adds a nice space between the two paragraphs */
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
 }
 
 .resume-wrapper {
@@ -187,7 +206,26 @@ section {
     display: inline-block;
     margin: 0 auto;
 }
-/* Skills Section */
+
+.about-image {
+    display: flex;
+    justify-content: center;
+}
+
+.about-image img {
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+    object-fit: cover;
+    border: 4px solid var(--secondary-color);
+    box-shadow: 0 10px 30px var(--shadow-color);
+}
+
+/* --- SKILLS SECTION --- */
+#skills {
+    background-color: var(--dark-bg);
+}
+
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -195,33 +233,39 @@ section {
 }
 
 .skill-card {
-    background: var(--card-bg);
-    color: var(--text-dark);
+    background: var(--dark-bg-2);
+    color: var(--primary-color);
     padding: 30px;
     border-radius: 10px;
     text-align: center;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 20px var(--shadow-color);
     transition: 0.3s;
-    border-bottom: 5px solid var(--primary-color);
+    border: 1px solid #30363d;
+    border-bottom: 5px solid var(--secondary-color);
 }
 
 .skill-card:hover {
     transform: translateY(-10px);
+    border-color: var(--secondary-color);
+    box-shadow: 0 15px 30px rgba(88, 166, 255, 0.15);
 }
 
 .skill-card i {
     font-size: 3rem;
-    color: var(--primary-color);
+    color: var(--accent-blue);
     margin-bottom: 20px;
 }
 
 .skill-card h3 {
     margin-bottom: 10px;
+    color: #ffffff;
 }
 
-/* Projects Section */
+/* --- PROJECTS SECTION --- */
 #projects {
-    background-color: var(--dark-bg);
+    background-color: var(--dark-bg-2);
+    border-top: 1px solid #30363d;
+    border-bottom: 1px solid #30363d;
 }
 
 .projects-grid {
@@ -231,74 +275,73 @@ section {
 }
 
 .project-card {
-    background: var(--dark-bg-2);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--dark-bg);
+    border: 1px solid #30363d;
     padding: 30px;
     border-radius: 10px;
     text-align: center;
     transition: 0.3s;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Pushes buttons to the bottom */
+    justify-content: space-between;
 }
 
 .project-card:hover {
     transform: translateY(-10px);
     border-color: var(--secondary-color);
+    box-shadow: 0 10px 25px rgba(88, 166, 255, 0.15);
 }
 
 .project-card i {
     font-size: 3rem;
-    color: var(--secondary-color);
+    color: var(--accent-blue);
     margin-bottom: 20px;
 }
 
 .project-card h3 {
     margin-bottom: 15px;
-    color: var(--text-light);
+    color: #ffffff;
 }
 
 .project-card p {
     margin-bottom: 20px;
     font-size: 0.95rem;
-    opacity: 0.8;
+    color: var(--primary-color);
 }
 
-/* This container holds the buttons and spaces them out */
 .project-links {
     margin-top: auto; 
     padding-top: 15px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05); 
+    border-top: 1px solid #30363d; 
     display: flex; 
     justify-content: center; 
-    gap: 15px; /* Adds the space between the two buttons */
+    gap: 15px; 
     flex-wrap: wrap; 
 }
 
-/* This styles the actual buttons */
 .project-links a {
     display: inline-block;
-    color: var(--primary-color);
+    color: var(--secondary-color);
     text-decoration: none;
     font-weight: 600;
     transition: 0.3s;
     padding: 8px 20px; 
-    border: 2px solid var(--primary-color);
+    border: 2px solid var(--secondary-color);
     border-radius: 5px;
     background-color: transparent;
     font-size: 0.9rem; 
 }
 
 .project-links a:hover {
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
     color: var(--text-dark);
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+    box-shadow: 0 5px 15px rgba(88, 166, 255, 0.4);
 }
 
-/* Contact Section */
+/* --- CONTACT SECTION --- */
 #contact {
-    background-color: var(--dark-bg-2);
+    background-color: var(--dark-bg);
 }
 
 .contact-container {
@@ -308,20 +351,19 @@ section {
     gap: 40px;
 }
 
-/* --- NEW CONTACT CARDS --- */
 .contact-cards {
-    display: flex;             /* Keeps them in a row */
-    flex-wrap: nowrap;         /* Changed from wrap: Forces them to stay on ONE line */
-    justify-content: center;   /* Centers the group */
-    gap: 20px;                 /* Space between the cards */
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 20px;
     width: 100%;
-    max-width: 1000px;         /* Increased width to fit all three */
+    max-width: 1000px;
 }
 
 .contact-card {
     background-color: var(--dark-bg-2);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 25px 15px;        /* Slightly smaller padding */
+    border: 1px solid #30363d;
+    padding: 25px 15px;
     border-radius: 10px;
     text-align: center;
     text-decoration: none;
@@ -330,12 +372,9 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    
-    /* --- KEY CHANGE --- */
-    width: 30%;                /* Fits 3 in a row perfectly (30% x 3 = 90%) */
-    max-width: 300px;          /* Prevents them from getting too big on huge screens */
-    min-width: 220px;          /* Prevents them from getting too small */
-    
+    width: 30%;
+    max-width: 300px;
+    min-width: 220px;
     position: relative; 
     z-index: 10; 
     cursor: pointer;
@@ -344,36 +383,34 @@ section {
 .contact-card:hover {
     transform: translateY(-8px);
     border-color: var(--secondary-color);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 25px rgba(88, 166, 255, 0.2);
 }
 
 .contact-card i {
     font-size: 2.5rem;
-    color: var(--secondary-color);
+    color: var(--accent-blue);
     margin-bottom: 15px;
-    
 }
 
 .contact-card h3 {
     font-size: 1.2rem;
     margin-bottom: 5px;
-    color: var(--primary-color);
+    color: #ffffff;
 }
 
 .contact-card p {
-    font-size: 0.8rem;      /* Decreased font size from 0.9rem to 0.8rem */
-    opacity: 0.8;
-    word-break: normal;     /* Changed from break-all so it wraps intelligently */
-    overflow-wrap: break-word; /* Ensures it breaks only if absolutely necessary */
-    margin-top: 5px;
+    font-size: 0.8rem;
+    word-break: normal;
+    overflow-wrap: break-word;
+    color: var(--primary-color);
 }
 
-/* --- FORM STYLES (Kept intact) --- */
+/* --- CONTACT FORM --- */
 .contact-form-container {
-    background-color: var(--dark-bg);
+    background-color: var(--dark-bg-2);
     padding: 30px;
     border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid #30363d;
     width: 100%;
     max-width: 600px;
     text-align: left;
@@ -393,10 +430,10 @@ section {
 .input-group textarea {
     width: 100%;
     padding: 15px;
-    background-color: var(--dark-bg-2);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: var(--dark-bg);
+    border: 1px solid #30363d;
     border-radius: 5px;
-    color: var(--text-light);
+    color: var(--primary-color);
     font-family: 'Poppins', sans-serif;
     font-size: 1rem;
     outline: none;
@@ -405,8 +442,8 @@ section {
 
 .input-group input:focus,
 .input-group textarea:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 10px rgba(74, 144, 226, 0.3);
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 10px rgba(88, 166, 255, 0.3);
 }
 
 .submit-btn {
@@ -419,34 +456,46 @@ section {
 }
 
 .submit-btn:hover {
-    background-color: #e67e22;
+    background-color: #1f6feb;
     transform: translateY(-3px);
 }
 
-/* Footer */
+/* --- FOOTER --- */
 footer {
-    background-color: var(--dark-bg);
+    background-color: var(--dark-bg-2);
     padding: 30px;
     text-align: center;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid #30363d;
     font-size: 0.9rem;
-    opacity: 0.7;
+    color: var(--primary-color);
 }
 
-/* Responsive Design */
+/* ========================================= */
+/* --- MOBILE RESPONSIVE (ONLY OPTIMIZATIONS) --- */
+/* ========================================= */
 @media (max-width: 768px) {
+    /* 1. Navbar Adjustments */
+    nav {
+        padding: 8px 5%; /* Smaller padding to reduce height */
+    }
+    
+    .logo {
+        font-size: 1.5rem; /* Smaller logo */
+    }
+
     .nav-links {
         position: absolute;
-        top: 70px;
+        top: 55px; /* Adjusted for smaller navbar */
         left: 0;
         width: 100%;
-        background: var(--dark-bg);
+        background: var(--dark-bg-2);
         flex-direction: column;
         align-items: center;
         padding: 20px 0;
         transform: translateY(-150%);
         transition: 0.5s;
         z-index: 999;
+        box-shadow: 0 10px 15px var(--shadow-color);
     }
 
     .nav-links.active {
@@ -455,30 +504,90 @@ footer {
 
     .menu-btn {
         display: block;
-        color: var(--text-light);
     }
 
+    /* 2. Hero Section Stacking */
     .hero {
-        flex-direction: column-reverse;
+        flex-direction: column-reverse; /* Image on top, text below */
         height: auto;
-        padding-top: 150px;
+        padding-top: 120px;
         padding-bottom: 50px;
         text-align: center;
+        gap: 30px;
+    }
+
+    .hero-text h1 {
+        font-size: 2.2rem; /* Smaller name text to fit screen */
+        white-space: normal; /* Allows name to wrap if needed */
+        line-height: 1.2;
+    }
+
+    .hero-text h3 {
+        font-size: 1.2rem;
     }
 
     .hero-text p {
-        margin: 0 auto 30px auto;
+        margin: 0 auto 25px auto;
+        font-size: 1rem;
     }
 
     .hero-image img {
-        width: 250px;
-        height: 250px;
-        margin-bottom: 30px;
+        width: 220px;
+        height: 220px;
+        margin-bottom: 10px;
     }
 
+    /* 3. Section Padding reduction */
+    section {
+        padding: 60px 5%; /* Saves scrolling space */
+    }
+
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 35px;
+    }
+
+    /* 4. Grid Stacking (About, Skills, Projects) */
     .about-content,
     .skills-grid,
     .projects-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Single column layout */
+        gap: 30px;
+    }
+    
+    .about-image {
+        margin-bottom: 10px;
+    }
+
+    .about-image img {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .resume-wrapper {
+        text-align: center;
+    }
+
+    /* 5. Contact Cards Stacking */
+    .contact-cards {
+        flex-wrap: wrap; /* Allows stacking */
+        gap: 15px;
+    }
+    
+    .contact-card {
+        width: 100%; /* Full width on mobile */
+        max-width: 100%;
+        padding: 20px;
+        min-width: auto; /* Removes the fixed min-width from desktop */
+    }
+
+    /* 6. Project buttons stack nicely */
+    .project-links {
+        gap: 10px;
+    }
+    
+    .project-links a {
+        width: 100%; /* Makes buttons full width in the card */
+        text-align: center;
     }
 }
